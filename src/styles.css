@@ -62,18 +62,17 @@
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
-  --color-brand-marine: var(--brand-marine);
-  --color-brand-ocean-raw: var(--brand-ocean);
-  --color-brand-accent: #2F4F67;   /* Deep Marine Blue - primary interactive */
-  --color-brand-ocean: #4A6F8F;    /* Ocean Blue - secondary interactive */
-  --color-brand-navy: #06142e;     /* Original navy - sparing accent */
-  --color-brand-teal: #14b8a6;     /* Original teal - sparing accent */
-  --color-brand-olive: #6B7456;    /* Natural olive - category indicator */
-  --color-brand-dill: #5F8B5A;     /* Fresh dill green - success only */
-  --color-brand-sand: #C7B299;     /* Sand beige - premium badge */
-  --color-brand-graphite: #3C3C3C; /* Borders, dividers */
-  --color-brand-slate: #232323;    /* Cards */
-  --color-brand-black: #121212;    /* Deep ocean black */
+  --color-brand-black: #121212;        /* Deep Ocean Black — primary foundation */
+  --color-brand-slate: #232323;        /* Slate Black — surface / secondary background */
+  --color-brand-graphite: #3C3C3C;     /* Graphite Gray — borders / structural contrast */
+  --color-brand-steel: #6A6F73;        /* Steel Gray — secondary text */
+  --color-brand-mist: #D6D8DA;         /* Mist Gray — light secondary text */
+  --color-brand-white: #FFFFFF;        /* Pure White — primary light text */
+  --color-brand-marine: #2F4F67;       /* Deep Marine Blue — primary accent */
+  --color-brand-ocean: #4A6F8F;        /* Ocean Blue — secondary marine accent */
+  --color-brand-olive: #6B7456;        /* Natural Olive — natural brand accent */
+  --color-brand-dill: #5F8B5A;         /* Fresh Dill Green — SUCCESS STATES ONLY */
+  --color-brand-sand: #C7B299;         /* Sand Beige — editorial/natural accent */
 }
 
 :root {
@@ -113,7 +112,7 @@
   --sidebar-accent-foreground: oklch(0.95 0.01 240);
   --sidebar-border: oklch(0.95 0.01 240 / 0.12);
   --sidebar-ring: oklch(0.56 0.09 245);
-  --font-display: "Marcellus", "Times New Roman", serif;
+  --font-display: "Fraunces", "Times New Roman", serif;
   --font-sans: "Mulish", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
@@ -244,14 +243,13 @@
   color: var(--foreground);
 }
 
-.bg-brand-navy   { background-color: var(--color-brand-navy); }
 .bg-brand-black  { background-color: var(--color-brand-black); }
 .bg-brand-slate  { background-color: var(--color-brand-slate); }
 .text-brand-marine { color: var(--color-brand-marine); }
-.text-brand-ocean  { color: var(--color-brand-ocean-raw); }
+.text-brand-ocean  { color: var(--color-brand-ocean); }
 .text-brand-sand   { color: var(--color-brand-sand); }
-.border-brand-marine { border-color: var(--color-brand-accent); }
-.bg-brand-marine   { background-color: var(--color-brand-accent); }
+.border-brand-marine { border-color: var(--color-brand-marine); }
+.bg-brand-marine   { background-color: var(--color-brand-marine); }
 
 /* ---------- Brand-framed media ---------- */
 /* Hairline brand frame around photography; corners instead of radius/shadows. */
@@ -307,12 +305,12 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-color: var(--color-brand-accent);
+  background-color: var(--color-brand-marine);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 320ms cubic-bezier(0.19, 1, 0.22, 1);
 }
-.btn-ghost:hover { color: #fff; border-color: var(--color-brand-accent); }
+.btn-ghost:hover { color: #fff; border-color: var(--color-brand-marine); }
 .btn-ghost:hover::before { transform: scaleX(1); transform-origin: left; }
 .btn-ghost:focus-visible { outline: 2px solid var(--color-brand-ocean); outline-offset: 2px; }
 
@@ -327,27 +325,27 @@
   text-transform: uppercase;
   color: var(--color-brand-marine);
   padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--color-brand-accent);
+  border-bottom: 1px solid var(--color-brand-marine);
   transition: color 200ms ease, border-color 200ms ease;
 }
-.link-underline:hover { color: #fff; border-color: rgb(255 255 255 / 0.6); }
+.link-underline:hover { color: #fff; border-color: var(--color-brand-marine); }
 
 /* Premium primary CTA — Deep Marine Blue with smooth hover shift. */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background-color: var(--color-brand-accent);
+  background-color: var(--color-brand-marine);
   color: #fff;
   padding: 1rem 2rem;
   font-size: 0.8125rem;
   letter-spacing: 0.05em;
-  transition: background-color 250ms ease, transform 250ms ease, box-shadow 250ms ease;
+  transition: background-color 250ms ease, transform 250ms ease;
 }
-.btn-primary:hover { background-color: var(--color-brand-ocean); transform: translateY(-1px); box-shadow: 0 10px 30px -12px rgba(74,111,143,0.5); }
+.btn-primary:hover { background-color: var(--color-brand-ocean); transform: translateY(-1px); }
 .btn-primary:active { transform: translateY(0); background-color: #26445a; }
 .btn-primary:focus-visible { outline: 2px solid var(--color-brand-ocean); outline-offset: 2px; }
-.btn-primary:disabled { background-color: #3a3a3a; color: #777; cursor: not-allowed; box-shadow: none; transform: none; }
+.btn-primary:disabled { background-color: #3a3a3a; color: #777; cursor: not-allowed; transform: none; }
 
 .btn-outline {
   display: inline-flex;
@@ -365,7 +363,7 @@
 
 /* Card lift on hover — hairline highlight instead of a drop shadow. */
 .card-lift { transition: transform 300ms ease, border-color 300ms ease; }
-.card-lift:hover { transform: translateY(-4px); border-color: rgb(111 147 181 / 0.55); }
+.card-lift:hover { transform: translateY(-2px); border-color: var(--color-brand-marine); }
 
 /* Nav link underline animation. */
 .nav-link { position: relative; padding-bottom: 4px; }

@@ -44,11 +44,11 @@ export function SiteHeader() {
     { to: "/contact", label: t("nav.contact") },
   ] as const;
   return (
-    <header className="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-brand-black/90 backdrop-blur-xl text-white">
+    <header className="fixed top-0 inset-x-0 z-50 border-b border-border/60 bg-brand-black text-white">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img src={LOGO_IMAGE} alt="Ocean Bridge Trade" className="h-9 w-auto brightness-0 invert" />
-          <div className="hidden sm:block leading-tight border-l border-white/15 pl-3">
+          <div className="hidden sm:block leading-tight border-l border-border/60 pl-3">
             <div className="text-[9px] uppercase tracking-[0.25em] text-white/55">Muscat · Oman</div>
           </div>
         </Link>
@@ -67,7 +67,7 @@ export function SiteHeader() {
         </nav>
         <div className="hidden md:block"><LocaleSwitcher /></div>
         <button
-          className="md:hidden transition-transform active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[color:var(--color-brand-ocean)]"
+          className="md:hidden transition-transform active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-marine"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
@@ -81,7 +81,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="md:hidden border-t border-white/10 bg-brand-black px-6 py-6 space-y-4"
+            className="md:hidden border-t border-border/60 bg-brand-black px-6 py-6 space-y-4"
           >
             {links.map((l, i) => (
               <motion.div
@@ -95,7 +95,7 @@ export function SiteHeader() {
                 </Link>
               </motion.div>
             ))}
-            <div className="pt-4 border-t border-white/10"><LocaleSwitcher /></div>
+            <div className="pt-4 border-t border-border/60"><LocaleSwitcher /></div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -113,7 +113,7 @@ export function SiteFooter() {
     "Regulatory Disclosures",
   ];
   return (
-    <footer className="mt-32 bg-brand-black text-white border-t border-white/10">
+    <footer className="mt-32 bg-brand-black text-white border-t border-border/60">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12 py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
           <img src={LOGO_IMAGE} alt="Ocean Bridge Trade" className="h-12 w-auto brightness-0 invert mb-4" />
@@ -140,7 +140,7 @@ export function SiteFooter() {
         </div>
       </div>
       {/* Legal / regulatory sub-menu */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-border/60">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-12 py-5 flex flex-wrap gap-x-6 gap-y-2 text-[11px] tracking-wide text-white/60">
           {legal.map((label) => (
             <a key={label} href="#" className="hover:text-white transition-colors">
@@ -149,7 +149,7 @@ export function SiteFooter() {
           ))}
         </div>
       </div>
-      <div className="border-t border-white/10">
+      <div className="border-t border-border/60">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-12 py-5 flex justify-between items-center text-[11px] tracking-widest uppercase text-white/50">
           <span>© {new Date().getFullYear()} Ocean Bridge Trade</span>
           <span>Bridging Origin. Verifying Supply.</span>
@@ -162,7 +162,6 @@ export function SiteFooter() {
 export function MediaSlot({ label, className, aspect = "aspect-video" }: { label: string; className?: string; aspect?: string }) {
   return (
     <div className={`relative ${aspect} w-full overflow-hidden bg-card border border-border/60 flex items-center justify-center ${className ?? ""}`}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,111,160,0.25),transparent_60%)]" />
       <div className="relative text-center">
         <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">Media Slot</div>
         <div className="mt-1 font-mono text-xs text-foreground/70">{label}</div>
